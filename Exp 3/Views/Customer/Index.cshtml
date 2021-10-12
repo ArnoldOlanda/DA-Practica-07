@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Exp_3.Models.CLIENTES>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Email</th>
+        <th>Celular</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>@item.nombre</td>
+    <td>@item.direccion</td>
+    <td>@item.email</td>
+    <td>@item.telefono</td>
+    <td>
+        @Html.ActionLink("Editar", "Editar", new { id = item.codigo }) |
+        @Html.ActionLink("Detalles", "Detalle", new { id = item.codigo }) |
+        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.codigo })
+
+    </td>
+</tr>
+}
+
+</table>

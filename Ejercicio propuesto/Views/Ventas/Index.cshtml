@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EjerciciosPropuestos.Models.VENTAS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ventas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalventa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTES.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODUCTOS.nompro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalventa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codcliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codproducto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codventa }) |
+            @Html.ActionLink("Details", "Details", new { id=item.codventa }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.codventa })
+        </td>
+    </tr>
+}
+
+</table>
